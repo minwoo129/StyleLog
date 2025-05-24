@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748700978217",
+    "project_id": "stylelogapp-1b1c3",
+    "storage_bucket": "stylelogapp-1b1c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748700978217:android:069a6bcd747efe30902038",
+        "android_client_info": {
+          "package_name": "com.stylelog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4W2Ml1lgwxS_J3ieNh2jDga1P1owSWaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
