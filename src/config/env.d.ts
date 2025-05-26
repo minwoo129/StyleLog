@@ -53,6 +53,11 @@ declare module '@env' {
   export const FIREBASE_ANDROID_APP_ID: string;
   /**
    * ===================== Firebase Configurations =====================
+   * @description Firebase Web Client Id
+   */
+  export const FIREBASE_WEB_CLIENT_ID: string;
+  /**
+   * ===================== Firebase Configurations =====================
    * @description Firebase Measurement ID
    * - match property: measurementId
    */

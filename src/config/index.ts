@@ -7,6 +7,7 @@ import {
   FIREBASE_PROJECT_ID,
   FIREBASE_STORAGE_BUCKET,
   FIREBASE_WEB_APP_ID,
+  FIREBASE_WEB_CLIENT_ID,
   SERVER_TYPE,
 } from '@env';
 import {ReactNativeFirebase} from '@react-native-firebase/app';
@@ -29,4 +30,5 @@ export const FIREBASE_CONFIG: ReactNativeFirebase.FirebaseAppOptions = {
   databaseURL: FIREBASE_DATABASE_URL,
   storageBucket: FIREBASE_STORAGE_BUCKET,
   messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
+  clientId: FIREBASE_WEB_CLIENT_ID,
 };
