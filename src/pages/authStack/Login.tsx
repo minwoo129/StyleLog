@@ -1,38 +1,23 @@
-import LoginBtn from '@components/pages/authStack/login/LoginBtn';
-import LoginInput from '@components/pages/authStack/login/LoginInput';
-import useLoginInput from '@hooks/pages/authStack/login/useLoginInput';
+import useLogin from '@hooks/pages/authStack/login/useLogin';
 import React, {FC} from 'react';
-import {signInWithEmailAndPassword, getAuth} from '@react-native-firebase/auth';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
-import {ReactNativeFirebase} from '@react-native-firebase/app';
+import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 interface LoginProps {}
 
 const Login: FC<LoginProps> = ({}) => {
-  const [email, onChangeEmail] = useLoginInput();
-  const [password, onChangePassword] = useLoginInput();
+  //const [email, onChangeEmail] = useLoginInput();
+  //const [password, onChangePassword] = useLoginInput();
 
-  const onPressLogin = async () => {
-    console.log('email:', email);
-    console.log('password:', password);
-    try {
-      const res = await signInWithEmailAndPassword(getAuth(), email, password);
-      console.log('Login successful:', res.user);
-    } catch (e) {
-      const error = e as ReactNativeFirebase.NativeFirebaseError;
-
-      if (error.code === 'auth/invalid-credential') {
-        //console.log('Invalid credentials:', error.message);
-        // 회원정보가 존재하지 않는 경우 => 회원가입 페이지로 이동(소셜로그인만 있기 때문)
-      }
-    }
-  };
+  const {onClickGoogleLogin} = useLogin();
 
   return (
     <SafeAreaView style={styles.container}>
       <Text>Login</Text>
 
-      <LoginInput
+      <TouchableOpacity onPress={onClickGoogleLogin}>
+        <Text>Google Login</Text>
+      </TouchableOpacity>
+      {/* <LoginInput
         type="email"
         value={email}
         onChangeText={onChangeEmail}
@@ -46,7 +31,7 @@ const Login: FC<LoginProps> = ({}) => {
         customStyle={{marginTop: 20}}
       />
 
-      <LoginBtn onPress={onPressLogin} />
+      <LoginBtn onPress={onPressLogin} /> */}
     </SafeAreaView>
   );
 };
