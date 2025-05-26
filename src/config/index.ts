@@ -1,4 +1,15 @@
-import {API_URL, SERVER_TYPE} from '@env';
+import {
+  API_URL,
+  FIREBASE_ANDROID_APP_ID,
+  FIREBASE_API_KEY,
+  FIREBASE_DATABASE_URL,
+  FIREBASE_MESSAGING_SENDER_ID,
+  FIREBASE_PROJECT_ID,
+  FIREBASE_STORAGE_BUCKET,
+  FIREBASE_WEB_APP_ID,
+  SERVER_TYPE,
+} from '@env';
+import {ReactNativeFirebase} from '@react-native-firebase/app';
 
 /**
  * API 호출 정보
@@ -8,4 +19,14 @@ import {API_URL, SERVER_TYPE} from '@env';
 export const API_INFO = {
   API_URL,
   SERVER_TYPE,
+};
+
+export const FIREBASE_CONFIG: ReactNativeFirebase.FirebaseAppOptions = {
+  apiKey: FIREBASE_API_KEY,
+  appId: FIREBASE_WEB_APP_ID,
+  projectId: FIREBASE_PROJECT_ID,
+  androidClientId: FIREBASE_ANDROID_APP_ID,
+  databaseURL: FIREBASE_DATABASE_URL,
+  storageBucket: FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
 };
