@@ -9,7 +9,7 @@ const Stack = createStackNavigator<RootStackPageParams>();
 const RootStackNavigator: FC<RootStackNavigatorProps> = ({}) => {
   return (
     <Stack.Navigator
-      initialRouteName="MainStackNavigator"
+      initialRouteName="AuthStackNavigator"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="MainStackNavigator" component={MainStackNavigator} />
       <Stack.Screen name="AuthStackNavigator" component={AuthStackNavigator} />
