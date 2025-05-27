@@ -85,7 +85,7 @@ const useFirebaseAuth = () => {
     userData: FirebaseAuthTypes.User,
     socialType: SocialType,
   ) => {
-    const {email, displayName} = userData;
+    const {email, displayName, photoURL} = userData;
     try {
       const ref = doc(firestoreDB, 'users', userData.uid);
       await setDoc(ref, {
@@ -93,7 +93,7 @@ const useFirebaseAuth = () => {
         name: displayName ?? 'test',
         socialType,
         expiredAt: null,
-        profileImg: null,
+        profileImg: photoURL,
       });
     } catch (e) {
       throw e;
