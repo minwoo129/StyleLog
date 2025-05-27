@@ -2,15 +2,10 @@ import {
   FirestoreCollectionType,
   FirestoreDocDataType,
 } from '@constants/firebase/firestore';
-import {
-  FirebaseFirestoreTypes,
-  getFirestore,
-} from '@react-native-firebase/firestore';
+import {FirebaseFirestoreTypes} from '@react-native-firebase/firestore';
 import {useCallback} from 'react';
 
 const useFirestore = () => {
-  const db = getFirestore();
-
   const convertSnapshotToData = useCallback(
     <T extends Record<string, any>>(
       collection: FirestoreCollectionType,
@@ -36,7 +31,7 @@ const useFirestore = () => {
     [],
   );
 
-  return {db, convertSnapshotToData};
+  return {convertSnapshotToData};
 };
 
 export default useFirestore;

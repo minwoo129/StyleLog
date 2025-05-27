@@ -1,22 +1,17 @@
 import {
   FirebaseAuthTypes,
-  getAuth,
   GoogleAuthProvider,
   signInWithCredential,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from '@react-native-firebase/auth';
-import useFirestore from './useFirestore';
 import {getDoc, doc, setDoc} from '@react-native-firebase/firestore';
 import {ReactNativeFirebase} from '@react-native-firebase/app';
 import {requestGoogleSignin} from '@utils/socialLogin/google';
 import {SocialType} from '@constants/firebase/firestore';
+import {firebaseAuth, firestoreDB} from '@utils/firebase';
 
 const useFirebaseAuth = () => {
-  const auth = getAuth();
-
-  const {db} = useFirestore();
-
   const loginWithGoogle = async () => {
     try {
       const googleUserData = await requestGoogleSignin();
@@ -26,7 +21,7 @@ const useFirebaseAuth = () => {
       const {idToken} = googleUserData;
 
       const googleCredential = GoogleAuthProvider.credential(idToken);
-      const res = await signInWithCredential(auth, googleCredential);
+      const res = await signInWithCredential(firebaseAuth, googleCredential);
 
       return res;
     } catch (e) {
@@ -37,7 +32,7 @@ const useFirebaseAuth = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const requestEmailLogin = async (email: string, password: string) => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (e) {
       const error = e as ReactNativeFirebase.NativeFirebaseError;
       if (error.code === 'auth/invalid-credential') {
@@ -54,7 +49,7 @@ const useFirebaseAuth = () => {
   const createUserDataAtEmail = async (email: string, password: string) => {
     try {
       const result = await createUserWithEmailAndPassword(
-        auth,
+        firebaseAuth,
         email,
         password,
       );
@@ -66,7 +61,7 @@ const useFirebaseAuth = () => {
 
   const checkisJoined = async (uid: string) => {
     try {
-      const ref = doc(db, 'users', uid);
+      const ref = doc(firestoreDB, 'users', uid);
       const snapshot = await getDoc(ref);
 
       const data = snapshot.data();
@@ -83,7 +78,7 @@ const useFirebaseAuth = () => {
   ) => {
     const {email, displayName} = userData;
     try {
-      const ref = doc(db, 'users', userData.uid);
+      const ref = doc(firestoreDB, 'users', userData.uid);
       await setDoc(ref, {
         email: email ?? '',
         name: displayName ?? 'test',
