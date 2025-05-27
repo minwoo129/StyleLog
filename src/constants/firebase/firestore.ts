@@ -15,6 +15,8 @@ export type UserType = {
   name: string;
   profileImg: string | null;
   socialType: SocialType;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type ShopType = {

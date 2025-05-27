@@ -36,9 +36,11 @@ export const AppStateContextProvider: ProviderType = ({children}) => {
 
   const getUserData = async (user: FirebaseAuthTypes.User) => {
     const {uid} = user;
+
     try {
       const ref = doc(firestoreDB, 'users', uid);
       const snapshot = await getDoc(ref);
+      console.log('user snapshot: ', snapshot);
       const data = snapshot.data() as UserType;
       setLoginUser({
         ...data,

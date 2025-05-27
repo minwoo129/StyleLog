@@ -18,6 +18,7 @@ import {SocialType} from '@constants/firebase/firestore';
 import {firebaseAuth, firestoreDB} from '@utils/firebase';
 import {useContext} from 'react';
 import AppStateContext from '@contexts/common/AppStateContext';
+import dayjs from 'dayjs';
 
 const useFirebaseAuth = () => {
   const {loginUser} = useContext(AppStateContext);
@@ -86,6 +87,7 @@ const useFirebaseAuth = () => {
     socialType: SocialType,
   ) => {
     const {email, displayName, photoURL} = userData;
+    const dateTime = dayjs().format();
     try {
       const ref = doc(firestoreDB, 'users', userData.uid);
       await setDoc(ref, {
@@ -94,6 +96,8 @@ const useFirebaseAuth = () => {
         socialType,
         expiredAt: null,
         profileImg: photoURL,
+        createdAt: dateTime,
+        updatedAt: dateTime,
       });
     } catch (e) {
       throw e;
