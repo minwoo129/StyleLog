@@ -5,10 +5,12 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  deleteUser,
 } from '@react-native-firebase/auth';
 import {getDoc, doc, setDoc} from '@react-native-firebase/firestore';
 import {ReactNativeFirebase} from '@react-native-firebase/app';
 import {
+  reqeustGoogleWithdraw,
   requestGoogleSignin,
   requestGoogleSignOut,
 } from '@utils/socialLogin/google';
@@ -114,7 +116,32 @@ const useFirebaseAuth = () => {
     }
   };
 
-  return {loginWithGoogle, checkisJoined, createUserDataAtFirestore, logout};
+  const revoke = async () => {
+    const {currentUser} = firebaseAuth;
+    if (!currentUser || !loginUser) {
+      return;
+    }
+
+    const social = loginUser.socialType;
+
+    try {
+      await logout();
+      await deleteUser(currentUser);
+      if (social === 'google') {
+        await reqeustGoogleWithdraw();
+      }
+    } catch (e) {
+      throw e;
+    }
+  };
+
+  return {
+    loginWithGoogle,
+    checkisJoined,
+    createUserDataAtFirestore,
+    logout,
+    revoke,
+  };
 };
 
 export default useFirebaseAuth;

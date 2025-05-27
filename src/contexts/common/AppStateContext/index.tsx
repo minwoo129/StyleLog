@@ -19,6 +19,7 @@ export const AppStateContextProvider: ProviderType = ({children}) => {
 
   onAuthStateChanged(firebaseAuth, user => {
     if (!user) {
+      setLoginUser(null);
       return;
     }
 
