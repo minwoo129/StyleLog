@@ -40,7 +40,6 @@ export const AppStateContextProvider: ProviderType = ({children}) => {
     try {
       const ref = doc(firestoreDB, 'users', uid);
       const snapshot = await getDoc(ref);
-      console.log('user snapshot: ', snapshot);
       const data = snapshot.data() as UserType;
       setLoginUser({
         ...data,
