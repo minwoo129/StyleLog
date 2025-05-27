@@ -4,14 +4,21 @@ import {
   signInWithCredential,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signOut,
 } from '@react-native-firebase/auth';
 import {getDoc, doc, setDoc} from '@react-native-firebase/firestore';
 import {ReactNativeFirebase} from '@react-native-firebase/app';
-import {requestGoogleSignin} from '@utils/socialLogin/google';
+import {
+  requestGoogleSignin,
+  requestGoogleSignOut,
+} from '@utils/socialLogin/google';
 import {SocialType} from '@constants/firebase/firestore';
 import {firebaseAuth, firestoreDB} from '@utils/firebase';
+import {useContext} from 'react';
+import AppStateContext from '@contexts/common/AppStateContext';
 
 const useFirebaseAuth = () => {
+  const {loginUser} = useContext(AppStateContext);
   const loginWithGoogle = async () => {
     try {
       const googleUserData = await requestGoogleSignin();
@@ -91,7 +98,23 @@ const useFirebaseAuth = () => {
     }
   };
 
-  return {loginWithGoogle, checkisJoined, createUserDataAtFirestore};
+  const logout = async () => {
+    if (!loginUser) {
+      return;
+    }
+
+    try {
+      await signOut(firebaseAuth);
+      if (loginUser.socialType === 'google') {
+        await requestGoogleSignOut();
+        return;
+      }
+    } catch (e) {
+      throw e;
+    }
+  };
+
+  return {loginWithGoogle, checkisJoined, createUserDataAtFirestore, logout};
 };
 
 export default useFirebaseAuth;

@@ -5,6 +5,8 @@
  * @format
  */
 
+import ContextProvider from '@contexts';
+import {AppStateContextProvider} from '@contexts/common/AppStateContext';
 import AppMain from '@pages/root/AppMain';
 import React from 'react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -14,7 +16,9 @@ function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaProvider>
-        <AppMain />
+        <ContextProvider contexts={[AppStateContextProvider]}>
+          <AppMain />
+        </ContextProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

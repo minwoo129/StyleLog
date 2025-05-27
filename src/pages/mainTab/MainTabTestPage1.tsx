@@ -2,8 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {addDoc, collection, onSnapshot} from '@react-native-firebase/firestore';
 import useFirestore from '@hooks/common/firebase/useFirestore';
-import {onAuthStateChanged} from '@react-native-firebase/auth';
-import {firebaseAuth, firestoreDB} from '@utils/firebase';
+import {firestoreDB} from '@utils/firebase';
 
 interface MainTabTestPage1Props {}
 
@@ -14,10 +13,6 @@ const MainTabTestPage1: FC<MainTabTestPage1Props> = ({}) => {
   useEffect(() => {
     getData();
   }, []);
-
-  onAuthStateChanged(firebaseAuth, user => {
-    console.log('onAuthStateChanged user: ', user);
-  });
 
   const getData = async () => {
     try {

@@ -1,4 +1,4 @@
-export type FirestoreCollectionType = 'test';
+export type FirestoreCollectionType = 'test' | 'users';
 
 export type FirestoreDocDataType<T extends Record<string, any>> = {
   documentInfo: {
@@ -10,13 +10,11 @@ export type FirestoreDocDataType<T extends Record<string, any>> = {
 export type SocialType = 'google' | 'apple' | 'kakao' | 'naver';
 
 export type UserType = {
-  name: string;
-  nickname: string;
   email: string;
+  expiredAt: string | null;
+  name: string;
+  profileImg: string | null;
   socialType: SocialType;
-  createdAt: string;
-  updatedAt: string;
-  withdrawAt: string | null;
 };
 
 export type ShopType = {
