@@ -12,7 +12,8 @@
       "@contexts": ["src/contexts"],
       "@contexts/*": ["src/contexts/*"],
       "@constants/*": ["src/constants/*"],
-      "@themes/*": ["src/themes/*"]
+      "@themes/*": ["src/themes/*"],
+      "@jotai/*": ["src/jotai/*"]
     }
   },
   "extends": "@react-native/typescript-config/tsconfig.json"
