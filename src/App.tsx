@@ -5,6 +5,8 @@
  * @format
  */
 
+import ContextProvider from '@contexts';
+import {AppStateContextProvider} from '@contexts/common/AppStateContext';
 import AppMain from '@pages/root/AppMain';
 import {Provider} from 'jotai';
 import React from 'react';
@@ -16,7 +18,9 @@ function App(): React.JSX.Element {
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaProvider>
         <Provider>
-          <AppMain />
+          <ContextProvider contexts={[AppStateContextProvider]}>
+            <AppMain />
+          </ContextProvider>
         </Provider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
