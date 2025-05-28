@@ -62,4 +62,9 @@ declare module '@env' {
    * - match property: measurementId
    */
   export const FIREBASE_MEASUREMENT_ID: string;
+  /**
+   * ===================== Kakao API 보안정보 =====================
+   * @description 카카오 API 키(Rest API)
+   */
+  export const KAKAO_REST_API_KEY: string;
 }
