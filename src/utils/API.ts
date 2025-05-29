@@ -43,7 +43,7 @@ export interface KakaoSearchClosestShopResponse {
   meta: KakaoSearchClosestShopMetadata;
 }
 
-interface KakaoSearchClosestShopDocument {
+export interface KakaoSearchClosestShopDocument {
   /** 장소명 */
   place_name: string;
   /** 중심좌표까지의 거리(x,y 파라미터를 준 경우에만 존재) */
