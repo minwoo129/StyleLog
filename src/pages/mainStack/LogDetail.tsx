@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import ImageView from '@components/mainStack/logDetail/ImageView';
+import ImageView from '@components/pages/mainStack/logDetail/ImageView';
 import {useAppNavigation, useAppRoute} from '@hooks/common/navigation';
 import useLogDetail from '@hooks/pages/mainStack/LogDetail/useLogDetail';
 import {ViewPager} from '@ui-kitten/components';
