@@ -2,10 +2,10 @@ import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import useLogDatas from '@hooks/pages/mainTab/userStyleLogPage/useLogDatas';
 import LogList from '@components/pages/mainTab/userStylelogPage/LogList';
+import CommonHeader from '@components/common/CommonHeader';
 
 const UserStyleLogPage = () => {
   const {logDatas} = useLogDatas();
-  console.log('logDatas: ', logDatas);
   // const test = async () => {
   //   try {
   //     const result = await addLogData();
@@ -17,6 +17,7 @@ const UserStyleLogPage = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <CommonHeader />
       <LogList photos={logDatas} />
     </SafeAreaView>
   );
