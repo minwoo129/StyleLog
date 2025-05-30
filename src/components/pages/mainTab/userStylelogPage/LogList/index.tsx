@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
 import {FlatList} from 'react-native';
 import LogListItem from '../LogListItem';
+import {FirestoreDocDataType, LogDataType} from '@constants/firebase/firestore';
 
 interface LogListProps {
-  photos: string[];
+  photos: FirestoreDocDataType<LogDataType>[];
 }
 
 const LogList: FC<LogListProps> = ({photos}) => {

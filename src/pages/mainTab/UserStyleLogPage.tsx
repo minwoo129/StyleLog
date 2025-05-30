@@ -1,25 +1,23 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import useLogDatas from '@hooks/pages/mainStack/userStyleLogPage/useLogDatas';
+import LogList from '@components/pages/mainTab/userStylelogPage/LogList';
 
 const UserStyleLogPage = () => {
-  const {addLogData} = useLogDatas();
-
-  const test = async () => {
-    try {
-      const result = await addLogData();
-      console.log('Log data added:', result);
-    } catch (e) {
-      console.log('Image upload failed:', e);
-    }
-  };
+  const {logDatas} = useLogDatas();
+  console.log('logDatas: ', logDatas);
+  // const test = async () => {
+  //   try {
+  //     const result = await addLogData();
+  //     console.log('Log data added:', result);
+  //   } catch (e) {
+  //     console.log('Image upload failed:', e);
+  //   }
+  // };
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={test}>
-        <Text>업로드</Text>
-      </TouchableOpacity>
-      {/* <LogList photos={photos} /> */}
+      <LogList photos={logDatas} />
     </SafeAreaView>
   );
 };
@@ -27,6 +25,7 @@ const UserStyleLogPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
 });
 
