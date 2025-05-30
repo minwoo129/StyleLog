@@ -1,6 +1,7 @@
 import {APP_SIZE_INFO} from '@config';
 import {FirestoreDocDataType, LogDataType} from '@constants/firebase/firestore';
 import {USER_LOG_PLACEHOLDER_IMG} from '@constants/userLogs';
+import {useAppNavigation} from '@hooks/common/navigation';
 import React, {FC, useMemo, useState} from 'react';
 import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 
@@ -11,6 +12,7 @@ interface LogListItemProps {
 }
 
 const LogListItem: FC<LogListItemProps> = ({item}) => {
+  const mainStackNavigation = useAppNavigation('MainStack');
   const [isError, setError] = useState(false);
   const photoURL = useMemo(() => {
     const isPhotoIncluded = item.photos.length > 0;
@@ -28,6 +30,9 @@ const LogListItem: FC<LogListItemProps> = ({item}) => {
       style={styles.container}
       onPress={() => {
         console.log('onPress Image');
+        mainStackNavigation.navigate('LogDetail', {
+          logData: item,
+        });
       }}>
       <Image
         source={{

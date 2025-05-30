@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import useLogDatas from '@hooks/pages/mainStack/userStyleLogPage/useLogDatas';
+import useLogDatas from '@hooks/pages/mainTab/userStyleLogPage/useLogDatas';
 import LogList from '@components/pages/mainTab/userStylelogPage/LogList';
 
 const UserStyleLogPage = () => {
