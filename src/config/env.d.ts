@@ -62,4 +62,14 @@ declare module '@env' {
    * - match property: measurementId
    */
   export const FIREBASE_MEASUREMENT_ID: string;
+  /**
+   * ===================== Naver Map Secure Information =====================
+   * @description Naver Map Client ID
+   */
+  export const NAVER_MAP_CLIENT_ID: string;
+  /**
+   * ===================== Naver Map Secure Information =====================
+   * @description Naver Map Client Secret
+   */
+  export const NAVER_MAP_CLIENT_SECRET: string;
 }

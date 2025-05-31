@@ -20,4 +20,16 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        maven {
+            url "https://repository.map.naver.com/archive/maven"
+        }
+    }
+}
+
+project.ext.react = [
+        nodeExecutableAndArgs: ["/usr/local/bin/node"]
+]
+
 apply plugin: "com.facebook.react.rootproject"
