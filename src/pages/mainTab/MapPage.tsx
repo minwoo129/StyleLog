@@ -1,10 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {NaverMapView} from '@mj-studio/react-native-naver-map';
 
 const MapPage = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>MapPage</Text>
+      <NaverMapView style={{flex: 1}} />
     </SafeAreaView>
   );
 };
