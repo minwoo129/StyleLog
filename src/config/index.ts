@@ -10,9 +10,14 @@ import {
   FIREBASE_WEB_CLIENT_ID,
   NAVER_MAP_CLIENT_ID,
   NAVER_MAP_CLIENT_SECRET,
+  KAKAO_REST_API_KEY,
   SERVER_TYPE,
 } from '@env';
 import {ReactNativeFirebase} from '@react-native-firebase/app';
+import {Dimensions} from 'react-native';
+
+const WINDOW_WIDTH = Dimensions.get('window').width;
+const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 /**
  * API 호출 정보
@@ -38,4 +43,13 @@ export const FIREBASE_CONFIG: ReactNativeFirebase.FirebaseAppOptions = {
 export const NaverMapSecureInfo = {
   clientId: NAVER_MAP_CLIENT_ID,
   clientSecret: NAVER_MAP_CLIENT_SECRET,
+};
+
+export const KAKAO_SECURE_INFO = {
+  kakaoRestAPIKey: KAKAO_REST_API_KEY,
+};
+
+export const APP_SIZE_INFO = {
+  WINDOW_WIDTH,
+  WINDOW_HEIGHT,
 };

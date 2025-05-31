@@ -4,9 +4,9 @@ import {RouteProp} from '@react-navigation/native';
 export interface MainTabNavigatorProps {}
 
 export type MainTabPageParams = {
-  MainTabTestPage1: undefined;
-  MainTabTestPage2: undefined;
-  MainTabTestPage3: undefined;
+  UserStyleLogPage: undefined;
+  MapPage: undefined;
+  MyPage: undefined;
 };
 
 export type MainTabNavigation = BottomTabNavigationProp<MainTabPageParams>;

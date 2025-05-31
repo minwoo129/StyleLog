@@ -1,4 +1,6 @@
-export type FirestoreCollectionType = 'test' | 'users';
+import {KakaoSearchClosestShopDocument} from '@utils/API';
+
+export type FirestoreCollectionType = 'test' | 'users' | 'userlogs';
 
 export type FirestoreDocDataType<T extends Record<string, any>> = {
   documentInfo: {
@@ -49,6 +51,6 @@ export type LogDataType = {
   createdAt: string;
   updatedAt: string;
   userId: string;
-  photoURL: string;
-  designerId: string;
+  photos: string[];
+  shopInfo: KakaoSearchClosestShopDocument | null;
 };
