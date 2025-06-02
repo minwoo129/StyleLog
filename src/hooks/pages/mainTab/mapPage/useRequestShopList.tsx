@@ -13,13 +13,12 @@ import {requestLocationPermission} from '@utils/location/requestPermission';
 import {showToast} from '@utils/toast';
 import {AxiosError} from 'axios';
 import {useSetAtom} from 'jotai';
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect} from 'react';
 import DeviceInfo from 'react-native-device-info';
 
 type RequestShopDataParams = {} & Coordinate;
 
 const useRequestShopList = () => {
-  const [isPermissionGranted, setPermissionGranted] = useState(false);
   const setShops = useSetAtom(shopListAtom);
   const setCurrentCoordinate = useSetAtom(currentCoordinateAtom);
 
@@ -39,7 +38,6 @@ const useRequestShopList = () => {
         return;
       }
 
-      setPermissionGranted(true);
       if (platform === 'android') {
         const isGPSEnabled = await checkAndroidGPSEnabled();
         if (!isGPSEnabled) {
@@ -103,8 +101,6 @@ const useRequestShopList = () => {
       throw error;
     }
   };
-
-  return {isPermissionGranted};
 };
 
 export default useRequestShopList;
