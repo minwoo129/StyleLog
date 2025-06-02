@@ -1,8 +1,7 @@
-import React, {FC, useRef} from 'react';
+import React, {FC} from 'react';
 import {StyleSheet} from 'react-native';
 import {
   NaverMapView,
-  NaverMapViewRef,
   NaverMapMarkerOverlay,
 } from '@mj-studio/react-native-naver-map';
 import {useAtomValue} from 'jotai';
@@ -10,6 +9,7 @@ import {
   currentCoordinateAtom,
   shopListAtom,
 } from '@jotai/pages/mainTab/mapPage';
+import useNaverMap from '@hooks/pages/mainTab/mapPage/useNaverMap';
 
 interface NaverMapProps {}
 
@@ -17,13 +17,14 @@ const NaverMap: FC<NaverMapProps> = ({}) => {
   const shops = useAtomValue(shopListAtom);
   const {latitude, longitude} = useAtomValue(currentCoordinateAtom);
 
-  const ref = useRef<NaverMapViewRef>(null);
+  const {onCameraChanged, ref} = useNaverMap();
 
   return (
     <NaverMapView
       ref={ref}
       style={styles.container}
-      camera={{latitude, longitude, zoom: 15}}>
+      camera={{latitude, longitude, zoom: 15}}
+      onCameraChanged={onCameraChanged}>
       {shops.map(shop => {
         const {x, y, id, place_name} = shop;
         return (
