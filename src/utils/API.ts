@@ -19,12 +19,13 @@ export const kakaoSearchClosestShop = ({
       x,
       y,
       page,
-      size: 45,
+      size: 15,
+      query: '미용실',
     },
   };
-
+  console.log('kakaoSearchClosestShop config:', config);
   return http.get<KakaoSearchClosestShopResponse>(
-    'https://dapi.kakao.com/v2/local/search/keyword.json?query=미용실',
+    'https://dapi.kakao.com/v2/local/search/keyword.json',
     config,
   );
 };
@@ -32,9 +33,9 @@ export const kakaoSearchClosestShop = ({
 // =================================================================================
 interface KakaoSearchShopRequest {
   /** 경도 */
-  x: string;
+  x: number;
   /** 위도 */
-  y: string;
+  y: number;
   /** 페이지 번호(디폴트: 1) */
   page?: number;
 }
