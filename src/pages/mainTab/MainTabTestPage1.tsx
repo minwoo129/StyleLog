@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {FC, useEffect} from 'react';
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {addDoc, collection, onSnapshot} from '@react-native-firebase/firestore';
@@ -22,7 +23,6 @@ const MainTabTestPage1: FC<MainTabTestPage1Props> = ({}) => {
           age: string;
           birth: string;
         }>('test', snapshot);
-        console.log('datas: ', datas);
       });
     } catch (error) {
       console.log('Error getting documents: ', error);
@@ -36,8 +36,6 @@ const MainTabTestPage1: FC<MainTabTestPage1Props> = ({}) => {
         age: '23',
         birth: '2024-05-01',
       });
-
-      console.log('res: ', res);
     } catch (e) {}
   };
 

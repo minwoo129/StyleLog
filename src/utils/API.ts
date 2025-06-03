@@ -23,7 +23,6 @@ export const kakaoSearchClosestShop = ({
       query: '미용실',
     },
   };
-  console.log('kakaoSearchClosestShop config:', config);
   return http.get<KakaoSearchClosestShopResponse>(
     'https://dapi.kakao.com/v2/local/search/keyword.json',
     config,

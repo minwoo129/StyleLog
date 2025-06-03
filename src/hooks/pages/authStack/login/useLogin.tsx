@@ -14,7 +14,7 @@ const useLogin = () => {
 
       return userAuthData.user;
     } catch (e) {
-      console.log('Google login error:', e);
+      __DEV__ && console.log('Google login error:', e);
     }
   };
 

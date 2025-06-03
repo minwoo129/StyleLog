@@ -47,12 +47,11 @@ const useFirebaseAuth = () => {
       const error = e as ReactNativeFirebase.NativeFirebaseError;
       if (error.code === 'auth/invalid-credential') {
         createUserDataAtEmail(email, password);
-        //console.log('Invalid credentials:', error.message);
         // 회원정보가 존재하지 않는 경우 => 회원가입 페이지로 이동(소셜로그인만 있기 때문)
         return;
       }
 
-      console.log('Email sign-in error:', e);
+      __DEV__ && console.log('Email sign-in error:', e);
     }
   };
 

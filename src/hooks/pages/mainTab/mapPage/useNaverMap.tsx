@@ -35,7 +35,6 @@ const useNaverMap = () => {
     const long2 = args.longitude.toFixed(4);
 
     if (lat1 !== lat2 || long1 !== long2) {
-      console.log('flag');
       setCameraMoved(true);
     }
   }, 100);

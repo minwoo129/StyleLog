@@ -49,7 +49,7 @@ export const AppStateContextProvider: ProviderType = ({children}) => {
         },
       });
     } catch (e) {
-      console.log('Error getting user data: ', e);
+      __DEV__ && console.log('Error getting user data: ', e);
     }
   };
 

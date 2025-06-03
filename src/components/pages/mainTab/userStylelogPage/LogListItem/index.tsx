@@ -29,7 +29,6 @@ const LogListItem: FC<LogListItemProps> = ({item}) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        console.log('onPress Image');
         mainStackNavigation.navigate('LogDetail', {
           logData: item,
         });
