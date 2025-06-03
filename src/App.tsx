@@ -15,20 +15,23 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import * as eva from '@eva-design/eva';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
+import {OverlayProvider} from '@toss/use-overlay';
 
 function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <SafeAreaProvider>
-        <Provider>
-          <IconRegistry icons={EvaIconsPack} />
-          <ContextProvider contexts={[AppStateContextProvider]}>
-            <ApplicationProvider {...eva} theme={eva.light}>
-              <AppMain />
-            </ApplicationProvider>
-          </ContextProvider>
-        </Provider>
-      </SafeAreaProvider>
+      <OverlayProvider>
+        <SafeAreaProvider>
+          <Provider>
+            <IconRegistry icons={EvaIconsPack} />
+            <ContextProvider contexts={[AppStateContextProvider]}>
+              <ApplicationProvider {...eva} theme={eva.light}>
+                <AppMain />
+              </ApplicationProvider>
+            </ContextProvider>
+          </Provider>
+        </SafeAreaProvider>
+      </OverlayProvider>
     </GestureHandlerRootView>
   );
 }

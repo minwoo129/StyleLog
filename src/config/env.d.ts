@@ -63,6 +63,16 @@ declare module '@env' {
    */
   export const FIREBASE_MEASUREMENT_ID: string;
   /**
+   * ===================== Naver Map Secure Information =====================
+   * @description Naver Map Client ID
+   */
+  export const NAVER_MAP_CLIENT_ID: string;
+  /**
+   * ===================== Naver Map Secure Information =====================
+   * @description Naver Map Client Secret
+   */
+  export const NAVER_MAP_CLIENT_SECRET: string;
+  /**
    * ===================== Kakao API 보안정보 =====================
    * @description 카카오 API 키(Rest API)
    */

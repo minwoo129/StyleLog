@@ -14,7 +14,6 @@ const useFirebaseStorage = () => {
 
       const response = await storageRef.putFile(filePath);
       const url = await getDownloadURL(storageRef);
-      console.log('File uploaded successfully:', url);
       return {uploadResponse: response, downloadURL: url};
     } catch (e) {
       throw e;

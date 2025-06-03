@@ -1,10 +1,17 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import useRequestShopList from '@hooks/pages/mainTab/mapPage/useRequestShopList';
+import NaverMap from '@components/pages/mainTab/mapPage/NaverMap';
+import CurrentLocationSearchBtn from '@components/pages/mainTab/mapPage/CurrentLocationSearchBtn';
 
 const MapPage = () => {
+  useRequestShopList();
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text>MapPage</Text>
+      <NaverMap />
+
+      <CurrentLocationSearchBtn />
     </SafeAreaView>
   );
 };

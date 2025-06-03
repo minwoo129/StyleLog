@@ -6,14 +6,6 @@ import CommonHeader from '@components/common/CommonHeader';
 
 const UserStyleLogPage = () => {
   const {logDatas} = useLogDatas();
-  // const test = async () => {
-  //   try {
-  //     const result = await addLogData();
-  //     console.log('Log data added:', result);
-  //   } catch (e) {
-  //     console.log('Image upload failed:', e);
-  //   }
-  // };
 
   return (
     <SafeAreaView style={styles.container}>

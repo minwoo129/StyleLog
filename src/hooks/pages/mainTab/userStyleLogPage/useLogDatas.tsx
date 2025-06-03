@@ -46,7 +46,6 @@ const useLogDatas = () => {
         userId: 'test',
       });
 
-      console.log('addedResult: ', addedResult);
       return addedResult;
     } catch (e) {
       throw e;

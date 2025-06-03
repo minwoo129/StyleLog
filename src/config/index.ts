@@ -8,6 +8,8 @@ import {
   FIREBASE_STORAGE_BUCKET,
   FIREBASE_WEB_APP_ID,
   FIREBASE_WEB_CLIENT_ID,
+  NAVER_MAP_CLIENT_ID,
+  NAVER_MAP_CLIENT_SECRET,
   KAKAO_REST_API_KEY,
   SERVER_TYPE,
 } from '@env';
@@ -36,6 +38,11 @@ export const FIREBASE_CONFIG: ReactNativeFirebase.FirebaseAppOptions = {
   storageBucket: FIREBASE_STORAGE_BUCKET,
   messagingSenderId: FIREBASE_MESSAGING_SENDER_ID,
   clientId: FIREBASE_WEB_CLIENT_ID,
+};
+
+export const NaverMapSecureInfo = {
+  clientId: NAVER_MAP_CLIENT_ID,
+  clientSecret: NAVER_MAP_CLIENT_SECRET,
 };
 
 export const KAKAO_SECURE_INFO = {
