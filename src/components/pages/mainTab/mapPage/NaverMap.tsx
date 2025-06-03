@@ -10,6 +10,7 @@ import {
   shopListAtom,
 } from '@jotai/pages/mainTab/mapPage';
 import useNaverMap from '@hooks/pages/mainTab/mapPage/useNaverMap';
+import useShopDetailBottomSheet from '@hooks/pages/mainTab/mapPage/useShopDetailBottomSheet';
 
 interface NaverMapProps {}
 
@@ -18,6 +19,8 @@ const NaverMap: FC<NaverMapProps> = ({}) => {
   const {latitude, longitude} = useAtomValue(currentCoordinateAtom);
 
   const {onCameraChanged, ref} = useNaverMap();
+
+  const shopDetailBottomSheet = useShopDetailBottomSheet();
 
   return (
     <NaverMapView
@@ -34,6 +37,9 @@ const NaverMap: FC<NaverMapProps> = ({}) => {
             longitude={parseFloat(x)}
             caption={{text: place_name}}
             anchor={{x: 0.5, y: 1}}
+            onTap={() => {
+              shopDetailBottomSheet.open(shop);
+            }}
           />
         );
       })}
