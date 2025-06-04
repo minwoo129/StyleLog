@@ -12,7 +12,7 @@ const useLogDatas = () => {
     [],
   );
 
-  const ref = collection(firestoreDB, 'testuserlogs');
+  const ref = collection(firestoreDB, 'userlogs');
   const {convertSnapshotToData} = useFirestore();
   const {uploadFile} = useFirebaseStorage();
   const {requestSingleImageInLibrary} = useImagePicker();
