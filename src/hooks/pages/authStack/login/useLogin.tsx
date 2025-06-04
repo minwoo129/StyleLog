@@ -11,8 +11,6 @@ const useLogin = () => {
       if (!isJoined) {
         await createUserDataAtFirestore(userAuthData.user, 'google');
       }
-
-      return userAuthData.user;
     } catch (e) {
       __DEV__ && console.log('Google login error:', e);
     }

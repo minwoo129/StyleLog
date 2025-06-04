@@ -26,6 +26,7 @@ module.exports = {
           '@constants': './src/constants',
           '@themes': './src/themes',
           '@jotai': './src/jotai',
+          '@images': './src/assets/images',
         },
       },
     ],
