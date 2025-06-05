@@ -39,8 +39,7 @@ const useFirebaseAuth = () => {
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const requestEmailLogin = async (email: string, password: string) => {
+  const requestTestLogin = async (email: string, password: string) => {
     try {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (e) {
@@ -144,6 +143,7 @@ const useFirebaseAuth = () => {
     createUserDataAtFirestore,
     logout,
     revoke,
+    requestTestLogin,
   };
 };
 
