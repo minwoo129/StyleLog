@@ -4,8 +4,12 @@ import {useAppNavigation} from '@hooks/common/navigation';
 const useLogin = () => {
   const rootStackNavigation = useAppNavigation('RootStack');
 
-  const {loginWithGoogle, checkisJoined, createUserDataAtFirestore} =
-    useFirebaseAuth();
+  const {
+    loginWithGoogle,
+    checkisJoined,
+    createUserDataAtFirestore,
+    requestTestLogin,
+  } = useFirebaseAuth();
   const onClickGoogleLogin = async () => {
     try {
       const userAuthData = await loginWithGoogle();
@@ -21,8 +25,20 @@ const useLogin = () => {
     }
   };
 
+  const onClickTestLogin = async () => {
+    if (!__DEV__) return;
+
+    try {
+      await requestTestLogin('aaa@test.aa', '123456');
+      rootStackNavigation.reset({routes: [{name: 'MainStackNavigator'}]});
+    } catch (e) {
+      __DEV__ && console.log('Test login error:', e);
+    }
+  };
+
   return {
     onClickGoogleLogin,
+    onClickTestLogin,
   };
 };
 

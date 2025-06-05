@@ -6,6 +6,10 @@ interface GoogleLoginButtonProps {
   onClickGoogleLogin: () => Promise<void>;
 }
 
+interface TestLoginButtonProps {
+  onClickTestLogin: () => Promise<void>;
+}
+
 export const GoogleLoginButton = ({
   onClickGoogleLogin,
 }: GoogleLoginButtonProps) => {
@@ -13,6 +17,15 @@ export const GoogleLoginButton = ({
     <TouchableOpacity style={styles.button} onPress={onClickGoogleLogin}>
       <Image source={IC_GOOGLE} style={styles.buttonIcon} />
       <Text style={styles.buttonText}>구글로 로그인</Text>
+    </TouchableOpacity>
+  );
+};
+
+export const TestLoginButton = ({onClickTestLogin}: TestLoginButtonProps) => {
+  if (!__DEV__) return null;
+  return (
+    <TouchableOpacity style={styles.button} onPress={onClickTestLogin}>
+      <Text style={styles.buttonText}>테스트 로그인</Text>
     </TouchableOpacity>
   );
 };
@@ -27,6 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 8,
   },
   buttonIcon: {
     width: 36,

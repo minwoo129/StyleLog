@@ -1,4 +1,7 @@
-import {GoogleLoginButton} from '@components/pages/authStack/login/SNSLoginButtons';
+import {
+  GoogleLoginButton,
+  TestLoginButton,
+} from '@components/pages/authStack/login/SNSLoginButtons';
 import useLogin from '@hooks/pages/authStack/login/useLogin';
 import React, {FC} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
@@ -6,13 +9,14 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 interface LoginProps {}
 
 const Login: FC<LoginProps> = ({}) => {
-  const {onClickGoogleLogin} = useLogin();
+  const {onClickGoogleLogin, onClickTestLogin} = useLogin();
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Login</Text>
       <View style={styles.buttonsGrid}>
         <GoogleLoginButton onClickGoogleLogin={onClickGoogleLogin} />
+        <TestLoginButton onClickTestLogin={onClickTestLogin} />
       </View>
     </SafeAreaView>
   );
