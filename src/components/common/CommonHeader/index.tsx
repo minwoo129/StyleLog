@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     letterSpacing: -0.45,
     includeFontPadding: false,
     padding: 0,
+    fontWeight: 'bold',
   },
 });
 
