@@ -129,7 +129,7 @@ yarn ios --simulator='iPhone 16 Pro (18.0)'
 ## 4. 서비스 이미지
 
 <p align="left">
-  <img src="https://kr.object.ncloudstorage.com/githubimages/stylelog/Screenshot_20250605_142614_StyleLog.jpg" width="200px">
-  <img src="https://kr.object.ncloudstorage.com/githubimages/stylelog/Screenshot_20250603_145104_StyleLog.jpg" width="200px">
-  <img src="https://kr.object.ncloudstorage.com/githubimages/stylelog/Screenshot_20250605_141605_StyleLog.jpg" width="200px">
+  <img src="https://fejumvuajiwc28287693.gcdn.ntruss.com/stylelog/Screenshot_20250605_142614_StyleLog.jpg" width="200px">
+  <img src="https://fejumvuajiwc28287693.gcdn.ntruss.com/stylelog/Screenshot_20250603_145104_StyleLog.jpg" width="200px">
+  <img src="https://fejumvuajiwc28287693.gcdn.ntruss.com/stylelog/Screenshot_20250605_141605_StyleLog.jpg" width="200px">
 </p>
