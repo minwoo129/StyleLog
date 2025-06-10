@@ -26,7 +26,6 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
@@ -48,5 +47,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NMFNcpKeyId</key>
+	<string>rb4p3f3d0w</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+  	<string>'StyleLog'이(가) 사용자의 위치를 사용하도록 허용하겠습니까? 지도 첨부 위치 공유를 위해 위치 정보를 사용하도록 허용해주세요.</string>
+	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
+	<dict>
+		<key>LocationRequestPurpose</key>
+		<string>위치 권한 요청</string>
+	</dict>
 </dict>
 </plist>

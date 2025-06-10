@@ -25,6 +25,8 @@ module.exports = {
           '@contexts': './src/contexts',
           '@constants': './src/constants',
           '@themes': './src/themes',
+          '@jotai': './src/jotai',
+          '@images': './src/assets/images',
         },
       },
     ],

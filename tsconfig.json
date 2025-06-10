@@ -12,7 +12,9 @@
       "@contexts": ["src/contexts"],
       "@contexts/*": ["src/contexts/*"],
       "@constants/*": ["src/constants/*"],
-      "@themes/*": ["src/themes/*"]
+      "@themes/*": ["src/themes/*"],
+      "@jotai/*": ["src/jotai/*"],
+      "@images/*": ["src/assets/images/*"]
     }
   },
   "extends": "@react-native/typescript-config/tsconfig.json"
